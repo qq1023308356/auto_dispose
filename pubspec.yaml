@@ -1,0 +1,16 @@
+name: auto_dispose
+description: 一个自动auto_dispose
+version: 1.0.0
+homepage: https://github.com/qq1023308356/auto_dispose
+
+environment:
+  sdk: '>=3.0.3 <4.0.0'
+  flutter: ">=3.10.6"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
