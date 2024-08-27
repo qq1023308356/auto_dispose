@@ -9,11 +9,11 @@ mixin StreamAutoDispose<T extends StatefulWidget> on State<T> {
 
   @override
   void dispose() {
-    super.dispose();
     for (final VoidCallback element in set) {
       element();
     }
     set.clear();
+    super.dispose();
   }
 }
 
