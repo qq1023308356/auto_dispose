@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 @optionalTypeArgs
-mixin StreamAutoDispose<T extends StatefulWidget> on State<T> {
+mixin AutoDispose<T extends StatefulWidget> on State<T> {
   final Set<VoidCallback> set = <VoidCallback>{};
 
   @override
@@ -18,7 +18,7 @@ mixin StreamAutoDispose<T extends StatefulWidget> on State<T> {
 }
 
 extension ObjectExtension<T> on T {
-  T autoDispose(StreamAutoDispose<dynamic> state, {void Function(T value)? dispose}) {
+  T autoDispose(AutoDispose<dynamic> state, {void Function(T value)? dispose}) {
     final T obj = this;
     if (dispose != null) {
       state.set.add(() {
