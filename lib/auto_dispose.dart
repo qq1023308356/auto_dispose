@@ -18,10 +18,12 @@ mixin StreamAutoDispose<T extends StatefulWidget> on State<T> {
 }
 
 extension ObjectExtension<T> on T {
-  T autoDispose(StreamAutoDispose<dynamic> state, {VoidCallback? dispose}) {
+  T autoDispose(StreamAutoDispose<dynamic> state, {void Function(T value)? dispose}) {
     final T obj = this;
     if (dispose != null) {
-      state.set.add(dispose);
+      state.set.add(() {
+        dispose.call(this);
+      });
     } else if (obj is StreamSubscription) {
       state.set.add(obj.cancel);
     } else if (obj is AnimationController) {
